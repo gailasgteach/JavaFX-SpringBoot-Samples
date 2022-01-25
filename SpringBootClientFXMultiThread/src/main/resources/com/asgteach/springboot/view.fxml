@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="326.0" prefWidth="600.0" 
+        xmlns="http://javafx.com/javafx/8.0.171" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+                fx:controller="com.asgteach.springboot.ViewController">
+    <children>
+        <SplitPane dividerPositions="0.4" prefHeight="326.0" prefWidth="600.0" 
+            style="-fx-background-color: linear-gradient(aliceblue, lightblue);"
+                AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane>
+                    <children>
+                        <TableView fx:id="tableView" 
+                            AnchorPane.bottomAnchor="10.0" 
+                               AnchorPane.leftAnchor="10.0" 
+                                  AnchorPane.rightAnchor="15.0" 
+                                      AnchorPane.topAnchor="15.0">
+                            <columns>
+                                <TableColumn fx:id="idColumn" editable="false" 
+                                    prefWidth="${tableView.width * 0.3}" 
+                                        sortable="false" text="ID" />
+                                <TableColumn fx:id="categoryNameColumn" 
+                                    prefWidth="${tableView.width * 0.7}" 
+                                        sortable="false" text="Category" />
+                            </columns>
+                            <effect>
+                                <DropShadow color="#2c1f1fb0" 
+                                    offsetX="4.0" offsetY="6.0" />
+                            </effect>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" 
+                        prefWidth="600.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" 
+                              spacing="30.0" AnchorPane.bottomAnchor="20.0" 
+                                  AnchorPane.leftAnchor="20.0" 
+                                      AnchorPane.rightAnchor="20.0" 
+                                          AnchorPane.topAnchor="20.0">
+                            <children>
+                                <VBox prefWidth="100.0" spacing="10.0">
+                                    <children>
+                                        <Label text="Category Name" />
+                                        <TextField fx:id="categoryTextField" 
+                                             onKeyReleased="#handleKeyAction" 
+                                                 prefWidth="248.0" />
+                                    </children>
+                                </VBox>
+                                <HBox alignment="CENTER" spacing="10.0">
+                                    <children>
+                                        <Button fx:id="createButton" 
+                                           mnemonicParsing="false" 
+                                             onAction="#createButtonAction" 
+                                               prefWidth="65.0" text="New" />
+                                        <Button fx:id="updateButton" 
+                                           mnemonicParsing="false" 
+                                             onAction="#updateButtonAction" 
+                                               prefWidth="65.0" text="Update" />
+                                        <Button fx:id="removeButton" 
+                                           mnemonicParsing="false" 
+                                             onAction="#removeButtonAction" 
+                                               prefWidth="65.0" text="Delete" />
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER">
+                                    <children>
+                                        <Label fx:id="updateResult" 
+                                            text="" textAlignment="CENTER" 
+                                               wrapText="true">
+                                            <font>
+                                                <Font name="Arial Bold" 
+                                                    size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER">
+                                    <children>
+                                        <ProgressIndicator 
+                                            fx:id="progressIndicator" 
+                                                visible="false" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>
